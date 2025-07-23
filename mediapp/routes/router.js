@@ -1,8 +1,8 @@
-import { express } from 'express'
-import { appointmentController } from './AppointmentController'
-import { doctorController } from './DoctorController'
-import { pacientController } from './PacientController'
-import { prescriptionController } from './PrescriptionController'
+import express  from 'express'
+import appointmentController from './AppointmentController.js'
+import doctorController from './DoctorController'
+import pacientController from './PacientController'
+import prescriptionController from './PrescriptionController'
 
 let router = express.Router()
 

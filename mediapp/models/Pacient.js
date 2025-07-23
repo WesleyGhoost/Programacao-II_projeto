@@ -1,8 +1,8 @@
-import { mongoose } from "mongoose";
+import mongoose from "mongoose";
 
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
-const pacientSchema = new Schema({
+const PacientSchema = new Schema({
     pacientId: {
         type: String,
         required: [true, 'Pacient ID is required']
@@ -29,6 +29,6 @@ const pacientSchema = new Schema({
     }
 })
 
-const pacient = mongoose.model('Pacient', pacientSchema)
+const Pacient = mongoose.model('Pacient', PacientSchema)
 
-export default pacient
+export default Pacient

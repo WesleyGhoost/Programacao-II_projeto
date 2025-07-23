@@ -1,8 +1,8 @@
-import { mongoose } from "mongoose"
+import mongoose from "mongoose"
 
-const Schema = mongoose.Schema()
+const Schema = mongoose.Schema
 
-const prescriptionSchema = new Schema({
+const PrescriptionSchema = new Schema({
     date: {
         type: Date,
         required: [false]
@@ -28,6 +28,6 @@ const prescriptionSchema = new Schema({
     }
 }) 
 
-const prescription = mongoose.model('Prescription', prescriptionSchema)
+const Prescription = mongoose.model('Prescription', PrescriptionSchema)
 
-export default prescription
+export default Prescription

@@ -1,19 +1,18 @@
-import doctor from '../models/Doctor'
+import Doctor from '../models/Doctor.js'
 
 const getAllDoctors = async() => {
-    return await doctor.find()
+    return await Doctor.find()
 }
 
 const getDoctor = async(id) => {
     try {
-        return await doctor.findById(id)
+        return await Doctor.findById(id)
     } catch (error) {
         throw new Error(error)
     }
 }
 
 const saveDoctor = async({
-    doctorId, 
     name, 
     login,
     password,
@@ -23,15 +22,14 @@ const saveDoctor = async({
     phone
 }) => {
     try {
-        const doctor = new doctor({
-            doctorId, 
+        const doctor = new Doctor({
             name, 
             login,
             password,
             medicalSpecialty,
             medicalRegistry,
-           email,
-           phone
+            email,
+            phone
         })
         return await doctor.save()
     } catch (error) {
@@ -40,7 +38,6 @@ const saveDoctor = async({
 }
 
 const updateDoctor = async(id, {
-    doctorId, 
     name, 
     login,
     password,
@@ -50,8 +47,7 @@ const updateDoctor = async(id, {
     phone
     }) => {
     try {
-        return await doctor.findByIdAndUpdate(id, {
-            doctorId, 
+        return await Doctor.findByIdAndUpdate(id, {
             name, 
             login,
             password,
@@ -67,7 +63,7 @@ const updateDoctor = async(id, {
 
 const deleteDoctor = async(id) => {
     try {
-        return await doctor.findByIdAndUpdate(id)
+        return await Doctor.findByIdAndDelete(id)
     } catch (error) {
         throw new Error(error)
     }

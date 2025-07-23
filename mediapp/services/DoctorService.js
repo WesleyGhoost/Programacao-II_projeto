@@ -1,4 +1,4 @@
-import doctorRepository from "../repositories/DoctorRepository"
+import doctorRepository from "../repositories/DoctorRepository.js"
 
 const getAllDoctors = async() => {
     return doctorRepository.getAllDoctors()
@@ -9,7 +9,6 @@ const getDoctor = async(id) => {
 }
 
 const saveDoctor = async({
-    doctorId, 
     name, 
     login,
     password,
@@ -19,7 +18,6 @@ const saveDoctor = async({
     phone
 }) => {
     return doctorRepository.saveDoctor({
-        doctorId, 
         name, 
         login,
         password,
@@ -31,7 +29,6 @@ const saveDoctor = async({
 }
 
 const updateDoctor = async(id, {
-    doctorId, 
     name, 
     login,
     password,
@@ -41,7 +38,6 @@ const updateDoctor = async(id, {
     phone
 }) => {
     return doctorRepository.updateDoctor(id, {
-        doctorId, 
         name, 
         login,
         password,

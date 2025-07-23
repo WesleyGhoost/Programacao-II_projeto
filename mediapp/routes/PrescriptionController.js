@@ -1,5 +1,5 @@
 import express from "express"
-import prescriptionService from "../services/PrescriptionService"
+import prescriptionService from "../services/PrescriptionService.js"
 
 let router = express.Router()
 

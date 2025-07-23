@@ -1,6 +1,6 @@
 import express from "express"
 import bcrypt from 'bcrypt'
-import doctorService from "../services/DoctorService"
+import doctorService from "../services/DoctorService.js"
 
 let router = express.Router()
 
@@ -28,7 +28,6 @@ router.get("/getDoctor/:id", async(req, res) => {
 
 router.post("/postDoctor", async(req, res) => {
     const {
-        doctorId, 
         name, 
         login, 
         password, 
@@ -41,17 +40,15 @@ router.post("/postDoctor", async(req, res) => {
     try {
         const hashedPassword = await bcrypt.hash(password, 10)
         const doctor = await doctorService.saveDoctor({
-            doctorId, 
             name, 
             login,
-            password,
-            hashedPassword,
+            password: hashedPassword,
             medicalSpecialty,
             medicalRegistry,
             email,
             phone
         })
-        res.send(doctor)
+        res.status(201).send(doctor)
     } catch (error) {
         console.log(error)
         res.status(500).send(error)
@@ -61,7 +58,6 @@ router.post("/postDoctor", async(req, res) => {
 router.put("/doctors/:id", async(req, res) => {
     const {id} = req.params
     const {
-        doctorId, 
         name, 
         login,
         password,
@@ -73,7 +69,6 @@ router.put("/doctors/:id", async(req, res) => {
 
     try {
         const doctor = await doctorService.updateDoctor(id, {
-            doctorId, 
             name, 
             login,
             password,

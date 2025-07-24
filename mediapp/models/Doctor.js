@@ -27,7 +27,7 @@ const DoctorSchema = new Schema({
     },
     email: {
         type: String,
-        required: [true, 'Email is required is required']
+        required: [true, 'Email is required']
     },
     phone: {
         type: String,

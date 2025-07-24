@@ -3,10 +3,6 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema
 
 const PacientSchema = new Schema({
-    pacientId: {
-        type: String,
-        required: [true, 'Pacient ID is required']
-    },
     name: {
         type: String,
         required: [true, 'Pacient name is required']
@@ -17,10 +13,10 @@ const PacientSchema = new Schema({
     },
     email: {
         type: String,
-        required: [false]
+        required: [true, 'Email is required']
     },
     phone: {
-        type: Number,
+        type: String,
         required: [true, 'phone number is required']
     },
     createdAt: {

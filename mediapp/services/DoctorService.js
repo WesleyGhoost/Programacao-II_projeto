@@ -52,12 +52,17 @@ const deleteDoctor = async(id) => {
     return doctorRepository.deleteDoctor(id)
 }
 
+const getDoctorByLogin = async(login) => {
+    return doctorRepository.getDoctorByLogin(login)
+}
+
 const doctorService = {
     getAllDoctors,
     getDoctor,
     saveDoctor,
     updateDoctor,
-    deleteDoctor
+    deleteDoctor,
+    getDoctorByLogin
 }
 
 export default doctorService
